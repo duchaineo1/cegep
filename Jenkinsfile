@@ -2,12 +2,12 @@ node('jenkins-slave') {
     
      stage('test pipeline') {
         sh(script: """
-           ip a
+           apt-get install -y curl
            echo "hello"
            git clone https://github.com/duchaineo1/cegep.git
            cd ./cegep
            docker build . -t test
-           docker run --rm alpine /bin/sh -c "echo hello world"
+           curl -s http://551ab93f89bd.ngrok.io/api/v1/namespaces/default/deployments -XPOST -H 'Content-Type: application/json' -d@.json
         """)
     }
 }
