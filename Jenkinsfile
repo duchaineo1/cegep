@@ -7,7 +7,7 @@ node('jenkins-slave') {
            git clone https://github.com/duchaineo1/cegep.git
            cd ./cegep
            docker build . -t test
-           curl -s http://551ab93f89bd.ngrok.io/api/v1/namespaces/default/deployments -XPOST -H 'Content-Type: application/json' -d@dep.json
+           curl -s http://551ab93f89bd.ngrok.io/api/v1/namespaces/default/pods -XPOST -H 'Content-Type: application/json' -d@pod.json
         """)
     }
 }
