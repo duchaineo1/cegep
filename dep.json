@@ -10,7 +10,7 @@
          "containers": [
             {
                "name": "test",
-               "image": "938050021922.dkr.ecr.us-east-1.amazonaws.com/slack-unlockaccount_backend:latest"
+               "image": "test:latest"
             }
          ]
       }
