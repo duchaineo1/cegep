@@ -1,17 +1,9 @@
-# Use the official image as a parent image.
-FROM node:current-slim
-
-# Set the working directory.
-WORKDIR /usr/src/app
-
-# Copy the file from your host to your current location.
-COPY package.json .
-
-# Run the command inside your image filesystem.
-RUN npm install
-
-# Add metadata to the image to describe which port the container is listening on at runtime.
-EXPOSE 8080
-
-# Run the specified command within the container.
-CMD [ "npm", "start" ]
+FROM ubuntu:18.04
+RUN apt update && apt install -y python3-dev gcc python3-pip libssl-dev
+RUN mkdir /app
+ADD webserver.py /app
+ADD requirements.txt /
+RUN pip3 install -r requirements.txt
+EXPOSE 3000
+WORKDIR /app
+CMD ["python3", "./webserver.py"]
