@@ -1,8 +1,0 @@
- New-NetIPAddress -IPAddress 10.10.10.254 -InterfaceAlias "Ethernet1" -AddressFamily IPv4 -PrefixLength 24
- Rename-Computer SCORE1
- set-netFirewallProfile -profile domain,public,private -enabled false
- net user Administrator Admin1!
- restart-computer
-$runOnce = "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce"
-Set-ItemProperty $runOnce "nextRun" ('C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe c:\runOnce.ps1')
-
