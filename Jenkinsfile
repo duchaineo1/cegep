@@ -7,7 +7,7 @@ node('jenkins-slave') {
            git clone https://github.com/duchaineo1/cegep.git
            cd ./cegep
            docker build . -t test
-           docker run -p 5000:5000 -t test:latest
+           docker run -p 3000 -t test:latest
         """)
     }
 }
