@@ -4,7 +4,7 @@ node('jenkins-slave') {
         sh(script: """
             echo "hello"
            git clone https://github.com/duchaineo1/cegep.git
-           cd ./jenkins-test
+           cd ./cegep
            docker build . -t test
         """)
     }
