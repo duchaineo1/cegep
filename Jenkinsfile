@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Checkout Source') {
       steps {
-        git url:'https://github.com/justmeandopensource/playjenkins.git', branch:'test-deploy-stage'
+        git url:'https://github.com/duchaineo1/cegep.git'
       }
     }
     stage('Deploy App') {
