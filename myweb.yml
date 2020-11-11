@@ -17,3 +17,17 @@ spec:
         image: nginx:1.14.2
         ports:
         - containerPort: 80
+          hostPort: 80
+---
+apiVersion: v1
+kind: Service 
+metadata:
+  name: ngnix-service
+spec:
+  selector:
+    app: nginx
+  type: NodePort
+  ports:
+    - protocol: TCP
+         port: 80
+         targetPort: 80
