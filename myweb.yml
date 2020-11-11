@@ -1,39 +1,17 @@
-
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  labels:
-    app: myweb
-  name: myweb
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: myweb
-  template:
-    metadata:
-      labels:
-        app: myweb
-    spec:
-      containers:
-      - image: some-nginx:latest
-        imagePullPolicy: Always
-        name: myweb
-
 ---
 apiVersion: v1
-kind: Service
+kind: Pod
 metadata:
+  name: rss-site
   labels:
-    app: myweb
-  name: myweb
+    app: web
 spec:
-  ports:
-  - nodePort: 32223
-    port: 80
-    protocol: TCP
-    targetPort: 80
-  selector:
-    app: myweb
-  type: NodePor
+  containers:
+    - name: front-end
+      image: nginx
+      ports:
+        - containerPort: 80
+    - name: rss-reader
+      image: nickchase/rss-php-nginx:v1
+      ports:
+        - containerPort: 88
