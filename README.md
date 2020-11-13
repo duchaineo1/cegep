@@ -13,7 +13,7 @@
 sudo apt-get update && sudo apt-get upgrade
 ```
 
-2. Installation de docker, on part le service et on le part après un redémmarage
+2. Installation de Docker, on démarre le service et on s'assure qu'il redémarre si notre node redémarre. 
 
 ```bash
 sudo apt-get install -y docker.io
@@ -21,7 +21,7 @@ sudo systemctl enable docker
 sudo systemctl start docker
 sudo systemctl status docker # On peut vérifier le status du service pour être certain
 ```
-3. Installation CURL et kubernetes
+3. Installation CURL et Kubernetes
 
 ```bash
 sudo apt-get install -y curl
@@ -86,7 +86,7 @@ kubectl create ns jenkins
 3. Application des fichiers .yml 
 
 ```bash
-kubectl -n jenkins apply -f ./jenkins/ # patientez 10-15 secondes
+kubectl -n jenkins apply -f ./jenkins/ # patientez 
 kubectl get pods -n jenkins # Devrais vous donnez le nom du pod qui a été produit 
 ```
 
@@ -130,8 +130,6 @@ Pour Pods Labels :
 - Value = slave 
 
 8. On configure le pod et le container de l'agent Jenkins 
-
-
 
 ![pod_container_config](https://github.com/duchaineo1/cegep/blob/master/image/pod_container.png?raw=true)
 
@@ -180,6 +178,6 @@ Si le dépôt est privé on devras créer des credentials de type "Username and 
 
 Le script path est important puisque Jenkins a besoin du Jenkinsfile pour savoir quoi faire. 
 
-On peut maintenant Build le pipeline et Jenkins va déployer un serveur web nginx qui devrait être disponible à l'adresse ip de votre worker node disponible sur le port 80. 
+On peut maintenant Build le pipeline et Jenkins va déployer un serveur web nginx qui devrait être disponible à l'adresse ip de votre worker node. ex: http://192.168.1.1:80 
 
 
