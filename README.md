@@ -108,9 +108,20 @@ Ex: http://192.168.1.1:8080
 
 Une fois la configuration de base complété : 
 
-- Manage Jenkins 
-- Manage plugins 
+- Manage Jenkins -> Manage Plugins -> Available
 
 On a besoin de deux plugins pour ce montage : Kubernetes et Kubernetes continuous deploy 
+
+Une fois l'installation terminé il faudra redémmarer Jenkins, juste à cocher la case en bas. 
+
+7. Configuration du cloud 
+
+Après le rédémarrage 
+
+- Manage Jenkins -> Manage Nodes and Clouds -> Configure Clouds -> Add a new cloud -> Kubernetes 
+
+La configuration du cloud a plusieurs valeurs à entrer, suivre la capture d'écran. 
+
+
 
 
