@@ -131,7 +131,11 @@ Pour Pods Labels :
 
 8. On configure le pod et le container de l'agent Jenkins 
 
+
+
 ![pod_container_config](https://github.com/duchaineo1/cegep/blob/master/image/pod_container.png?raw=true)
+
+ - Global credentials -> 
 
 9. Volumes et Service Account
 
@@ -141,7 +145,41 @@ Pour Pods Labels :
 
 On sauvegarde ! 
 
+## Authentification 
+
+1. Creation de credentials 
+
+Pour que l'agent Jenkins puisse déployer des pods sur notre cluster il doit pouvoir s'identifier. 
+
+- Manage Jenkins -> Manage Credentials 
+
+![pod_container_config](https://github.com/duchaineo1/cegep/blob/master/image/credentials_config1.png?raw=true)
+
+ - Global credentials -> Add credentials 
+ 
+ Le fichier dont on doit copier le contenu se trouve sur le node master.
+ 
+ ```bash
+ sudo cat /etc/kubernetes/admin.conf
+ ```
+ Copiez le contenu dans le champ "content".
+
+![pod_container_config](https://github.com/duchaineo1/cegep/blob/master/image/kubeconfig.png?raw=true)
+
+
 ## Création d'un pipeline 
 
+1. Création du pipeline 
+
+- New Item 
+- Sélectionne Pipeline et nomme le projet 
+
+![pod_container_config](https://github.com/duchaineo1/cegep/blob/master/image/pipeline_config.png?raw=true)
+
+Si le dépôt est privé on devras créer des credentials de type "Username and password" pour que l'agent Jenkins puisse accéder au dépôt. 
+
+Le script path est important puisque Jenkins a besoin du Jenkinsfile pour savoir quoi faire. 
+
+On peut maintenant Build le pipeline et Jenkins va déployer un serveur web nginx qui devrait être disponible à l'adresse ip de votre worker node disponible sur le port 80. 
 
 
