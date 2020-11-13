@@ -1,7 +1,7 @@
 # Projet de veille 
 - [Projet de veille](#projet-de-veille)
   * [Pré-requis](#pr--requis)
-  * [Installation partie Kubernetes](#installation-partie-kubernetes)
+  * [Installation de Kubernetes](#installation-de-kubernetes)
   * [Installation de Jenkins sur Kubernetes](#installation-de-jenkins-sur-kubernetes)
   * [Authentification](#authentification)
   * [Création d'un pipeline](#cr-ation-d-un-pipeline)
@@ -10,7 +10,7 @@
 - Deux machines virtuelles Ubuntu 18.04 Desktop ou serveur. 
 - L'une des deux machines sera désigné comme master et l'autre comme worker. 
 
-## Installation partie Kubernetes
+## Installation de Kubernetes
 (Les étapes 1 à 5 sont à faire sur chacune des machines)
 1. Mettre les deux machines à jour
 
