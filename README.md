@@ -64,7 +64,7 @@ kubeadm join --discovery-token abcdef.1234567890abcdef --discovery-token-ca-cert
 De retour sur le master on vérifie que le join a fonctionné :
 
 ```bash
-kubectl get nodes
+kubectl get nodes # On devrait voir le worker node 
 ```
 
 ## Installation de Jenkins sur Kubernetes
