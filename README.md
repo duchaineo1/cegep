@@ -1,6 +1,6 @@
 # Projet de veille 
 - [Projet de veille](#projet-de-veille)
-  * [Pré-requis](#pr--requis)
+  * [Pré-requis](#pré-requis)
   * [Installation de Kubernetes](#installation-de-kubernetes)
   * [Installation de Jenkins sur Kubernetes](#installation-de-jenkins-sur-kubernetes)
   * [Authentification](#authentification)
