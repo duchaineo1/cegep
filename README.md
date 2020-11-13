@@ -69,7 +69,7 @@ kubectl get nodes # On devrait voir le worker node
 
 ## Installation de Jenkins sur Kubernetes
 
-Pour s'assurer que notre montage est performant et qu'il est simple de déployer sur Kubernetes sans utiliser les commandes on utilise un service Jenkins. On l'incorpore dans notre cluster pour lui donner une haute disponibilité. 
+Pour s'assurer que notre montage est performant et qu'il est simple de déployer sur Kubernetes on utilise un service Jenkins. On l'incorpore dans notre cluster pour lui donner une haute disponibilité. 
 
 1. Clonez le dépôt. 
 
