@@ -122,6 +122,5 @@ Après le rédémarrage
 
 La configuration du cloud a plusieurs valeurs à entrer, suivre la capture d'écran. 
 
-
-
+![kube_cloud_config](https://github.com/duchaineo1/cegep/blob/master/image/Kube_cloud.png?raw=true)
 
