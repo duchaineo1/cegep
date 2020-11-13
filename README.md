@@ -82,7 +82,7 @@ Pour s'assurer que notre montage est performant et qu'il est simple de déployer
 git clone https://github.com/duchaineo1/cegep.git
 ```
 
-2. **Création du namespace pour Jenkins **
+2. **Création du namespace pour Jenkins**
 
 ```bash
 kubectl create ns jenkins 
