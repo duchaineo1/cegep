@@ -7,7 +7,7 @@
   * [Création d'un pipeline](#pipeline)
 ## Pré-requis
 
-- Deux machines virtuelles Ubuntu 18.04 Desktop ou serveur. 
+- Deux machines virtuelles Ubuntu 18.04 Desktop ou serveur. (2 cpu 4gb de ram)
 - L'une des deux machines sera désigné comme master et l'autre comme worker. 
 
 ## Installation de Kubernetes
