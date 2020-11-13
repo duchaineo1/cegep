@@ -91,6 +91,7 @@ kubectl create ns jenkins
 3. **Application des fichiers .yml**
 
 ```bash
+cd cegep
 kubectl -n jenkins apply -f ./jenkins/ # patientez 
 kubectl get pods -n jenkins # Devrais vous donnez le nom du pod qui a été produit 
 ```
