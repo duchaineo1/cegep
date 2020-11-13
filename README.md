@@ -4,7 +4,7 @@
   * [Installation de Kubernetes](#installation-de-kubernetes)
   * [Installation de Jenkins sur Kubernetes](#installation-de-jenkins-sur-kubernetes)
   * [Authentification](#authentification)
-  * [Création d'un pipeline](#création-d-un-pipeline)
+  * [Création d'un pipeline](#pipeline)
 ## Pré-requis
 
 - Deux machines virtuelles Ubuntu 18.04 Desktop ou serveur. 
