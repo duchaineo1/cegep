@@ -15,7 +15,7 @@
 1. **Mettre les deux machines à jour**
 
 ```bash
-sudo apt-get update && sudo apt-get upgrade
+sudo apt-get update && sudo apt-get upgrade -y
 ```
 
 2. **Installation de Docker, on démarre le service et on s'assure qu'il redémarre si notre node redémarre.**
