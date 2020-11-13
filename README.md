@@ -3,10 +3,10 @@
 ## Pré-requis
 
 - Deux machines virtuelles Ubuntu 18.04 Desktop ou serveur. 
-- L'une des deux machines sera désigné comme master et l'autre comme slave. 
+- L'une des deux machines sera désigné comme master et l'autre comme worker. 
 - À moins que ce soit spécifié les commandes doivent être exécuté sur chacune des machines. 
 
-## Instalation
+## Instalation partie Kubernetes
 1. Mettre les deux machines à jour
 
 ```bash
@@ -34,7 +34,8 @@ kubeadm version # À titre informatif pour s'assurer que la commande est fonctio
 
 4. Désactivation du swap de mémoire. 
 
-Avec votre éditeur favoris (vim) il faut commenter la ligne qui mentionne le swap dans /etc/fstab. Redémarrage mandatoire. 
+Avec votre éditeur favoris (vim) il faut commenter la ligne qui mentionne le swap dans /etc/fstab. 
+Redémarrage mandatoire. 
 
 5. Mettre un hostname unique sur vos machines. 
 
@@ -42,18 +43,73 @@ Avec votre éditeur favoris (vim) il faut commenter la ligne qui mentionne le sw
 sudo hostnamectl set-hostname un_nom_unique
 ```
 
-6. SUR LE MASTER UNIQUEMENT. 
+6. SUR LE MASTER UNIQUEMENT. Initialisation du network.
 
 ```bash
-sudo kubeadm init --pod-network-cidr=10.244.0.0/16 # On donne le range d'ip de nos pods
+sudo kubeadm init --pod-network-cidr=10.244.0.0/16 # À la conclusion de la commande une string nous est fournis, à garder. 
 mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 sudo kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml # Ces pods vont s'occuper du networking entre nos nodes/pods
 kubectl get pods --all-namespaces # Vous devriez voir les pods que vous venez de créer en création
 ```
+7. SUR LE WORKER UNIQUEMENT. On join notre worker au cluster.
 
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+Avec la string qu'on a préservé : 
+
+```bash
+kubeadm join --discovery-token abcdef.1234567890abcdef --discovery-token-ca-cert-hash sha256:1234..cdef 1.2.3.4:6443
+```
+
+De retour sur le master on vérifie que le join a fonctionné :
+
+```bashkubectl get nodes
+```
+
+## Installation de Jenkins sur Kubernetes
+
+Pour s'assurer que notre montage est performant et qu'il est simple de déployer sur Kubernetes sans utiliser les commandes on utilise un service Jenkins. On l'incorpore dans notre cluster pour lui donner une haute disponibilité. 
+
+1. Clonez le dépôt. 
+
+```bash
+git clone https://github.com/duchaineo1/cegep.git
+```
+
+2. Création du namespace pour Jenkins 
+
+```bash
+kubectl create ns jenkins 
+```
+
+3. Application des fichiers .yml 
+
+```bash
+kubectl -n jenkins apply -f ./jenkins/ # patientez 10-15 secondes
+kubectl get pods -n jenkins # Devrais vous donnez le nom du pod qui a été produit 
+```
+
+4. Récupération du mot de passe admin de Jenkins 
+
+```bash
+kubectl -n jenkins logs nom_de_ton_pod # Le mot de passe est dans ce log 
+```
+
+Une fois le mot de passe récupéré on peut accéder à Jenkins à partir de l'url de ton worker node. 
+Ex: http://192.168.1.1:8080
+
+5. Faire la configuration de base de Jenkins 
+
+- Install suggested plugins 
+- Créer un utilisateur avec un mot de passe 
+
+6. Installation de plugins 
+
+Une fois la configuration de base complété : 
+
+- Manage Jenkins 
+- Manage plugins 
+
+On a besoin de deux plugins pour ce montage : Kubernetes et Kubernetes continuous deploy 
 
 
