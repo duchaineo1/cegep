@@ -124,3 +124,24 @@ La configuration du cloud a plusieurs valeurs à entrer, suivre la capture d'éc
 
 ![kube_cloud_config](https://github.com/duchaineo1/cegep/blob/master/image/Kube_cloud.png?raw=true)
 
+Pour Pods Labels : 
+
+- Key = jenkins 
+- Value = slave 
+
+8. On configure le pod et le container de l'agent Jenkins 
+
+![pod_container_config](https://github.com/duchaineo1/cegep/blob/master/image/pod_container.png?raw=true)
+
+9. Volumes et Service Account
+
+- Host Path = /var/run/docker.sock
+- Mount Path = /var/run/docker.sock
+- Service Account = jenkins
+
+On sauvegarde ! 
+
+## Création d'un pipeline 
+
+
+
