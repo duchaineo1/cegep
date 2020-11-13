@@ -4,9 +4,8 @@
 
 - Deux machines virtuelles Ubuntu 18.04 Desktop ou serveur. 
 - L'une des deux machines sera désigné comme master et l'autre comme worker. 
-- À moins que ce soit spécifié les commandes doivent être exécuté sur chacune des machines. 
 
-## Instalation partie Kubernetes
+## Installation partie Kubernetes
 1. Mettre les deux machines à jour
 
 ```bash
