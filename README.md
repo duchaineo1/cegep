@@ -6,6 +6,7 @@
 - L'une des deux machines sera désigné comme master et l'autre comme worker. 
 
 ## Installation partie Kubernetes
+(Les étapes 1 à 5 sont à faire sur chacune des machines)
 1. Mettre les deux machines à jour
 
 ```bash
