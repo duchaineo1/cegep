@@ -169,7 +169,7 @@ Pour que l'agent Jenkins puisse déployer des pods sur notre cluster il doit pou
 
 1. Création du pipeline 
 
-- New Item 
+- New Item (sur le menu principal)
 - Sélectionne Pipeline et nomme le projet 
 
 ![pod_container_config](https://github.com/duchaineo1/cegep/blob/master/image/pipeline_config.png?raw=true)
