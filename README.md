@@ -141,7 +141,6 @@ Pour Pods Labels :
 
 ![pod_container_config](https://github.com/duchaineo1/cegep/blob/master/image/pod_container.png?raw=true)
 
- - Global credentials -> 
 
 9. **Volumes et Service Account**
 
