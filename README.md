@@ -118,6 +118,8 @@ Une fois la configuration de base complété :
 
 On a besoin de deux plugins pour ce montage : Kubernetes et Kubernetes continuous deploy 
 
+**C'est possible que vous ayez à rafraichir manuellement la page**
+
 Une fois l'installation terminé il faudra redémmarer Jenkins, juste à cocher la case en bas. 
 
 7. **Configuration du cloud**
