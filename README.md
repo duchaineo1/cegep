@@ -9,6 +9,7 @@
 
 - Deux machines virtuelles Ubuntu 18.04 Desktop ou serveur. (2 cpu 4gb de ram)
 - L'une des deux machines sera désigné comme master et l'autre comme worker. 
+- Adresse IP statique sur le master et les workers
 
 ## Installation de Kubernetes
 (Les étapes 1 à 5 sont à faire sur chacune des machines)
