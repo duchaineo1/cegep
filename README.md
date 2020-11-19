@@ -94,7 +94,7 @@ kubectl create ns jenkins
 ```bash
 cd cegep
 kubectl -n jenkins apply -f ./jenkins/ # patientez 
-kubectl get pods -n jenkins # Devrais vous donnez le nom du pod qui a été produit 
+kubectl get pods -n jenkins # Devrais vous donner le nom du pod qui a été produit 
 ```
 
 4. **Récupération du mot de passe admin de Jenkins**
